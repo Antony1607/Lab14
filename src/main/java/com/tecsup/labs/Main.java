@@ -1,18 +1,33 @@
 package com.tecsup.labs;
 
-public class Main {
+/**
+ * Clase de demostración para ejecutar el servicio.
+ */
+public final class Main {
 
-    public static void main(String[] args) {
-        UserRegistrationService service = new UserRegistrationService();
+    /**
+     * Constructor privado para evitar instanciación.
+     */
+    private Main() {
+    }
 
-        // Casos de prueba simples
-        service.registerUser("juan", "123", "juan@correo"); // Contraseña muy corta
-        System.out.println(service.lastErrorMessage);
+    /**
+     * Método principal de ejecución.
+     *
+     * @param args Argumentos de línea de comandos.
+     */
+    public static void main(final String[] args) {
+        UserRegistrationService service =
+                new UserRegistrationService();
 
-        service.registerUser(null, "12345678", "correo-sin-arroba"); // username null
-        System.out.println(service.lastErrorMessage);
+        service.registerUser("juan", "123", "juan@correo");
+        System.out.println(service.getLastErrorMessage());
 
-        service.registerUser("error", "12345678", "error@correo.com"); // fuerza excepción
-        System.out.println(service.lastErrorMessage);
+        service.registerUser(null, "12345678", "correo-sin-arroba");
+        System.out.println(service.getLastErrorMessage());
+
+        service.registerUser("error", "12345678", "error@correo.com");
+        System.out.println(service.getLastErrorMessage());
     }
 }
+
