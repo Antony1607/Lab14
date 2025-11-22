@@ -1,13 +1,22 @@
 package com.tecsup.labs;
 
 /**
- * Hello world!
- *
+ * Clase principal de la aplicación.
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public final class App {
+
+    /**
+     * Constructor privado para evitar instanciación.
+     */
+    private App() {
+    }
+
+    /**
+     * Método principal de inicio.
+     *
+     * @param args Argumentos de línea de comandos.
+     */
+    public static void main(final String[] args) {
+        System.out.println("Hola mundo");
     }
 }
